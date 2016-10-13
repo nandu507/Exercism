@@ -4,7 +4,7 @@
    end
 
    def word_count
-     @phrases.gsub!(/[^0-9A-Za-z\b']/,' ')
+     @phrases.gsub!(/[^0-9A-Za-z']/,' ')
 
      @words = @phrases.split
      count = Hash.new 0

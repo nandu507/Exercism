@@ -1,11 +1,11 @@
 class Binary
   def initialize(binary_num)
     @binary_num = binary_num
-    raise(ArgumentError) if (@binary_num) =~ /[2-9a-zA-z]/
+    raise(ArgumentError) if @binary_num =~ /[2-9a-zA-z]/
   end
 
   def to_decimal
-    temp_array = @binary_num.split ""
+    temp_array = @binary_num.split ''
     count = 0
     decimal_num = 0
     until temp_array.empty?

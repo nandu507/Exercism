@@ -6,7 +6,7 @@ class Bob
            :anything_else => 'Whatever.'  }
     talk = input.chomp
     case(talk)
-    when talk =~ /\s/
+    when talk.empty?
       bob[:address_him]
     when talk[-1] == '?'
       bob[:question]

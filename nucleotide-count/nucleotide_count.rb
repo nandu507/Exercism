@@ -1,21 +1,27 @@
 class Nucleotide
-  class << self
-    def from_dna(input)
-      @dna_array = input.split('')
+    attr_accessor :input
+    def self.from_dna(input)
+      dna_array = input.split('')
     end
-    def count(dna_value)
+
+    def self.count(dna_value)
       nucleotide = 0
-      @dna_array.each do |value|
+      dna_array.each do |value|
         if value == dna_value
           nucleotide +=1
         end
       end
       nucleotide
     end
-    def histogram
-      nucleotides = { 'A' => 0, 'T' => 0, 'C' => 0, 'G' => 0 }
-      
 
+    def self.histogram
+      nucleotides = {}
+      no_of_nucleotide = 0
+      dna = ["A","T","C","G"]
+      dna.each do |nucle|
+        no_of_nucleotide = count(nucle)
+        nucleotides[nucle] = no_of_nucleotide
+      end
+     nucleotides
     end
-  end
 end

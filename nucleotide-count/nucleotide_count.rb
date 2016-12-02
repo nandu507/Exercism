@@ -1,20 +1,20 @@
 class Nucleotide
     attr_accessor :input
+
     def self.from_dna(input)
-      dna_array = input.split('')
+      return raise(ArgumentError) if input =~ /[^ATCG]/ 
+      Nucleotide.new(input)
     end
 
-    def self.count(dna_value)
-      nucleotide = 0
-      dna_array.each do |value|
-        if value == dna_value
-          nucleotide +=1
-        end
-      end
-      nucleotide
+    def initialize(input)
+      @dna_array = input.split("")
     end
 
-    def self.histogram
+    def count(dna_value)
+      nucleotide = @dna_array.count(dna_value)
+    end
+
+    def histogram
       nucleotides = {}
       no_of_nucleotide = 0
       dna = ["A","T","C","G"]
